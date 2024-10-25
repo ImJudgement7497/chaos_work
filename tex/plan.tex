@@ -32,7 +32,7 @@
 \section{Project Context}
 
 \subsection{Chaotic systems}
-My project will be in the field of \textit{chaos theory}, particularly in classical and quantum systems. Chaotic systems are a type of non-linear dynamical system that exhibit behaviours that "appear" random or noisy. However, throughout the centuries, universal features of chaotic systems have been discovered, and now chaos theory explains solutions of equations in a variety of fields such as population dynamics, chemistry and celestial mechanics.
+My project will be in the field of \textit{chaos theory}, particularly in classical and quantum systems. Chaotic systems are a type of non-linear dynamical system that exhibit behaviours that ``appear" random or noisy. However, throughout the centuries, universal features of chaotic systems have been discovered, and now chaos theory explains solutions of equations in a variety of fields such as population dynamics, chemistry and celestial mechanics.
 % Add comma after "however", could also break up the sentence into two in order to increase readability
 
 As we are concerned with dynamical systems, initial conditions of a system and the evolution of solutions to the equations that govern the system, or a trajectory, become fundamental concepts to utilise. A trajectory can evolve with any rule the dynamical system dictates, the simplest one being evolution with time \cite{HILBORN}.
@@ -45,11 +45,11 @@ Chaotic behaviour includes concepts such as bifurcation (the splitting of trajec
 
 Examples of dynamical systems are iterative maps, which have the form $x_{i+1} = f(x_{i})$. These are important as they give us useful insights as to how trajectories of complex systems evolve by studying each iteration of the map \cite{HILBORN}.
 
-Consider the closed mapping: $$x_{i+1} = {\mu} x_{i} (1 - x_{i}) \equiv f(\mu, x_{i}) \label{mapping}$$ on the unit interval $x_{i} \in [0, 1] \  {\forall}i \in \mathbb{N}$. This is called \textit{the logistic equation}, which can be used for biological models such as population growth. The value $\mu$ is a control parameter. There exists fixed points of the map i.e. a point $x^{*}$ such that $x^{*} = f(\mu, x^{*})$. For this mapping, the fixed points are: $$x^{*} = 0 \quad x^{*} = 1 - \frac{1}{\mu}$$ A fixed point has an associated stability, which can be found by analysing the absolute value of the derivative of the function $f(\mu, x)$ evaluated at a given fixed point. A stable or attracting fixed point is such that $|f'(x^{*})| < 1$ and iterations $x_{1} \rightarrow x_{2} \rightarrow \cdots \rightarrow x^{*}$ converge to the fixed point (like the trajectories are "attracted" to the point) \cite{SCHECK}. Considering the non-trivial fixed point of the logistic equation, $|f'(\mu, x^{*})| = |2 - \mu|$ which gives restrictions on the value of $\mu$. Notably, $\mu \leq 4$ so that the mapping remains closed under the interval and the fixed point $x^{*}$ is stable for $1 < \mu < 3$. 
+Consider the closed mapping: $$x_{i+1} = {\mu} x_{i} (1 - x_{i}) \equiv f(\mu, x_{i}) \label{mapping}$$ on the unit interval $x_{i} \in [0, 1] \  {\forall}i \in \mathbb{N}$. This is called \textit{the logistic equation}, which can be used for biological models such as population growth. The value $\mu$ is a control parameter. There exists fixed points of the map i.e. a point $x^{*}$ such that $x^{*} = f(\mu, x^{*})$. For this mapping, the fixed points are: $$x^{*} = 0 \quad x^{*} = 1 - \frac{1}{\mu}$$ A fixed point has an associated stability, which can be found by analysing the absolute value of the derivative of the function $f(\mu, x)$ evaluated at a given fixed point. A stable or attracting fixed point is such that $|f'(x^{*})| < 1$ and iterations $x_{1} \rightarrow x_{2} \rightarrow \cdots \rightarrow x^{*}$ converge to the fixed point (like the trajectories are ``attracted" to the point) \cite{SCHECK}. Considering the non-trivial fixed point of the logistic equation, $|f'(\mu, x^{*})| = |2 - \mu|$ which gives restrictions on the value of $\mu$. Notably, $\mu \leq 4$ so that the mapping remains closed under the interval and the fixed point $x^{*}$ is stable for $1 < \mu < 3$. 
 
 % This behaviour is studied by considering the composition $f \circ f$ of the original mapping. Now $x_{1}^{*}$ and $x_{2}^{*}$ are fixed points of the composition of the map.
 
-However, when $\mu > 3$, the trajectories now oscillate between two attracting points, which can be labelled $x_{1}^{*}$ and $x_{2}^{*}$, and the mapping undergoes a bifurcation. The trajectories are now attracted by two points. As $\mu$ increases, this splitting of trajectories occurs more and more often, leading to the bifurcation diagram shown in Figure \ref{fig:bif}. Analysis of the map can find what values of $\mu$ cause bifurcations. One could say that the behaviour looks "chaotic", that the splitting is random. However, it is a consequence of the system and in this case is predictable.
+However, when $\mu > 3$, the trajectories now oscillate between two attracting points, which can be labelled $x_{1}^{*}$ and $x_{2}^{*}$, and the mapping undergoes a bifurcation. The trajectories are now attracted by two points. As $\mu$ increases, this splitting of trajectories occurs more and more often, leading to the bifurcation diagram shown in Figure \ref{fig:bif}. Analysis of the map can find what values of $\mu$ cause bifurcations. One could say that the behaviour looks ``chaotic", that the splitting is random. However, it is a consequence of the system and in this case is predictable.
 
 \begin{figure}[h] 
     \centering
@@ -70,7 +70,7 @@ for generalised coordinates $q_{i}(t)$, generalised momenta $p_{i}(t)$ and $N$ d
 % $$\dot{\Theta}_{i} = \frac{\partial \mathcal{H}}{\partial J_{i}} \quad \dot{J}_{i} = -\frac{\partial \mathcal{H}}{\partial \Theta_{i}}$$ and each $J_{i}$ can have an associated function $\Theta_{i}(q, p)$. a canonical transform produces a Hamiltonian
 
 %[REFERENCE HULBORN PG 323]
-These constants can always be defined by an action function $J_{i}(q, p)$ \cite{HILBORN}. In the case where $\dot{J_{i}} = 0 \ \forall i$, then that system is called \textit{integrable}. An important consequence of this is that there are as many constants of motion as there are degrees of freedom in integrable systems. Thus naturally, a \textit{non-integrable} system has fewer constants of motion than degrees of freedom. It is these kinds of systems that exhibit chaotic behaviour, and further study is needed into why this is.
+These constants can always be defined by an action function $J_{i}(q, p)$ \cite{HILBORN}. In the case where $\dot{J_{i}} = 0 \ \forall i$, then that system is called \textit{integrable}. An important consequence of this is that there are as many constants of motion as there are degrees of freedom in integrable systems. Thus naturally, a \textit{non-integrable} system has fewer constants of motion than degrees of freedom. It is these kinds of systems that exhibit chaotic behaviour and further study is needed into why this is.
 
  
  % PG 334 LEADS ON TO QUANTUM, RIGHT ST END
@@ -96,14 +96,14 @@ The general aim of the project is to provide detail into billiard systems, their
     \item Understood the basic geometry of chaos in classical systems through studying Hilborn's book \cite{HILBORN} and Scheck's book \cite{SCHECK}.
     % \item Understood why non-integrability is a major factor into how chaos exhibits itself in Hamiltonian systems. 
     \item Understood the set-up of classical billiard systems, and how non-integrable versions exhibit chaotic behaviour through \cite{KORSCH}.
-    \item Understood integrable quantum billiard systems, and derived analytical results of their node structure following methods from \cite{ARND} and \cite{CASATI} and other similar work.
+    \item Understood integrable quantum billiard systems, and derived analytical results of their node structure following methods from \cite{ARND} and \cite{CASATI} and other similar work. Following this, have written up semester one's research.
 \end{itemize}
 
 \subsection*{Milestone 2: 14/03/24 (End of Week 5)}
 \begin{itemize}
     \item Used the semester one research to understand non-integrable quantum billiard systems, and then derived basic numerical results for these systems using package \cite{CODE}.
     \item Analysed the numerical results for evidence of consistent node structure across the first excited state in different systems.
-    \item Written up the majority of the research, to then have submitted the draft project with these first numerical results.
+    \item Written up the majority of the new research, to then have submitted the draft project with these first numerical results.
 \end{itemize}
 
 \subsection*{Milestone 3: 09/05/25 (End of Week 11)}
@@ -198,9 +198,6 @@ The general aim of the project is to provide detail into billiard systems, their
         issn = {0010-4655},
         author = {J. Solanpää and P.J.J. Luukko and E. Räsänen},
     }
-
-
-   
 
 \end{biblist}
 
