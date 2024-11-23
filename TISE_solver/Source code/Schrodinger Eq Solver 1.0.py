@@ -100,10 +100,8 @@ def general_potential(filename):
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     No_points = M*N
-    print(M)
     x_intervals = np.linspace(0,1,M)
     increment = np.absolute(x_intervals[0]-x_intervals[1])
-    print(increment)
     
     """ This constructs the Hamiltonian using the position_mesh, which was constructed using the
     input photo, for the detailed explanation please see section 3.1 of the project report (link in README.md)"""
@@ -149,7 +147,6 @@ e_values, e_vec = general_potential(imagename)
 #sorts the e_values and e_vec
 idx = e_values.argsort()[::-1]   
 e_values = e_values[idx]
-print(e_values)
 e_vec = e_vec[:,idx]
 
 #Plots~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~

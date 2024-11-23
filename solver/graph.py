@@ -6,7 +6,7 @@ from mpl_toolkits.axes_grid1 import make_axes_locatable
 e_vec = np.loadtxt('eigenvectors.txt')
 
 # Define the grid size (M, N), assuming you know it
-M, N = 3, 3  # Example dimensions, change as needed
+M, N = 100, 100  # Example dimensions, change as needed
 
 # Plot eigenvectors for all states (from input_data[0] to input_data[1])
 for i in range(int(9)):
@@ -14,6 +14,7 @@ for i in range(int(9)):
     
     # Reshape the eigenvector for plotting
     eig_vector = np.abs(e_vec[:, i].reshape(M, N)) ** 2  # Probability density
+    eig_vector = np.transpose(eig_vector) 
     plot = plt.imshow(np.transpose(eig_vector), cmap='magma', interpolation='gaussian')
 
     plt.setp(axi, xticks=[], yticks=[])
