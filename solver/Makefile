@@ -1,26 +1,41 @@
-CXX       := g++
-CXX_FLAGS := -std=c++17 -ggdb -Iinclude -fopenmp `pkg-config --cflags --libs opencv4`
+# Makefile for compiling with LAPACK and OpenCV
 
+# Compiler and flags
+CXX       := g++
+CXX_FLAGS := -std=c++17 -ggdb -Iinclude -fopenmp
+
+# LAPACK, LAPACKE, and BLAS libraries
+LAPACK_LIBS := -llapacke -llapack -lblas
+# OpenCV flags
+OPENCV_FLAGS := `pkg-config --cflags --libs opencv4`
+
+# Directories for source, binary, and include files
 BIN     := bin
 SRC     := src
 INCLUDE := include
 
-LIBRARIES   := 
-EXECUTABLE  := main # Change if executable wants to be a different name
+# Libraries (including OpenCV, LAPACK, LAPACKE, BLAS)
+LIBRARIES   := $(OPENCV_FLAGS) $(LAPACK_LIBS)
 
+# Executable name
+EXECUTABLE  := main
+
+# Default target
 all: $(BIN)/$(EXECUTABLE)
 
+# Run target: clean, build, and run the program
 run: clean all
 	@clear
 	@./$(BIN)/$(EXECUTABLE)
 
-# Create the bin directory if it doesn't exist, then build the executable
+# Compile the source code into the executable
 $(BIN)/$(EXECUTABLE): $(SRC)/*.cpp | $(BIN)
 	$(CXX) $(CXX_FLAGS) -I$(INCLUDE) $^ -o $@ $(LIBRARIES)
 
-# Rule to create the bin directory if it doesn't exist
+# Create the bin directory if it doesn't exist
 $(BIN):
 	mkdir -p $(BIN)
 
+# Clean the build directory
 clean:
 	-rm -rf $(BIN)/*

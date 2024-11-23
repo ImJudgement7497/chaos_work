@@ -82,6 +82,9 @@ def general_potential(filename):
                 binary_photo_matrix[i][j]=1
     
                
+
+    # for row in binary_photo_matrix:
+    #     print(row)
     global position_mesh
     position_mesh = binary_photo_matrix
     position_mesh = np.transpose(position_mesh)
@@ -91,12 +94,16 @@ def general_potential(filename):
 #     unflattened_position_mesh = position_mesh
 # =============================================================================
     position_mesh = np.matrix.flatten(position_mesh)
-     
+    # print("-----------------")
+    # print(position_mesh)
+    # print("-----------------")
     #~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
     No_points = M*N
+    print(M)
     x_intervals = np.linspace(0,1,M)
     increment = np.absolute(x_intervals[0]-x_intervals[1])
+    print(increment)
     
     """ This constructs the Hamiltonian using the position_mesh, which was constructed using the
     input photo, for the detailed explanation please see section 3.1 of the project report (link in README.md)"""
@@ -124,8 +131,13 @@ def general_potential(filename):
                 
                 if i == j:
                     Hamiltonian[j][i]=4/ pow(increment,2)
+    
+
+    # for row in Hamiltonian:
+    #     print(row)
                     
     e_values, e_vec = np.linalg.eig(Hamiltonian)
+    # print(e_vec[0])
     
     return [e_values, e_vec]
 
@@ -137,6 +149,7 @@ e_values, e_vec = general_potential(imagename)
 #sorts the e_values and e_vec
 idx = e_values.argsort()[::-1]   
 e_values = e_values[idx]
+print(e_values)
 e_vec = e_vec[:,idx]
 
 #Plots~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -170,14 +183,14 @@ for i in range(int(input_data[1])):
            
        plt.savefig( str(i)+'.pdf') 
        
-plt.show()
+# plt.show()
 
 
 if input_data[2] == 1:
     """a random number is included so the the results are not overwritten 
     when the code is executed again"""
-    np.save('data e values ' + str(np.random.randint(1000)), e_values)
-    np.save('data e vectors ' + str(np.random.randint(1000)), e_vec)
+    # np.save('data e values ' + str(np.random.randint(1000)), e_values)
+    # np.save('data e vectors ' + str(np.random.randint(1000)), e_vec)
 
     
 

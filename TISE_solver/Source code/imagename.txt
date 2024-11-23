@@ -1,2 +1,2 @@
 %paste the full image name bellow
-heart.png
+three.png
