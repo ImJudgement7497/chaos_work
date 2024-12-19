@@ -102,7 +102,8 @@ def general_potential(filename):
     No_points = M*N
     x_intervals = np.linspace(0,1,M)
     increment = np.absolute(x_intervals[0]-x_intervals[1])
-    
+
+    print(increment)
     """ This constructs the Hamiltonian using the position_mesh, which was constructed using the
     input photo, for the detailed explanation please see section 3.1 of the project report (link in README.md)"""
     global Hamiltonian
@@ -149,6 +150,8 @@ idx = e_values.argsort()[::-1]
 e_values = e_values[idx]
 e_vec = e_vec[:,idx]
 
+print(e_values)
+
 #Plots~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 for i in range(int(input_data[1])):
@@ -188,6 +191,54 @@ if input_data[2] == 1:
     when the code is executed again"""
     # np.save('data e values ' + str(np.random.randint(1000)), e_values)
     # np.save('data e vectors ' + str(np.random.randint(1000)), e_vec)
+
+for i in range(10):
+        fig, ax = plt.subplots(1, 1, figsize=(6, 6))
+        
+        eigenfunction = np.transpose(e_vec[:, i].reshape(M, N))
+
+        # Plot the eigenfunction
+        plot = ax.imshow(eigenfunction, cmap='binary_r', interpolation='gaussian', origin='lower')
+        plt.setp(ax, xticks=[], yticks=[])
+        ax.set_aspect('equal')  # Ensure square aspect ratio
+
+        # Add colorbar for eigenfunction values
+        divider = make_axes_locatable(ax)
+        cax = divider.append_axes("right", size="3%", pad=0.1)
+        cbar = fig.colorbar(plot, ax=ax, extend='both', cax=cax)
+        cbar.minorticks_on()
+        cbar.ax.tick_params(labelsize=5, pad=0.1)
+
+        # Set title for the state
+        if i == 0:
+            ax.set_title('The ground state (Eigenfunction)', fontsize=12)
+        elif i == 1:
+            ax.set_title('The 1$^{st}$ excited state (Eigenfunction)', fontsize=12)
+        elif i == 2:
+            ax.set_title('The 2$^{nd}$ excited state (Eigenfunction)', fontsize=12)
+        elif i == 3:
+            ax.set_title('The 3$^{rd}$ excited state (Eigenfunction)', fontsize=12)
+        else:
+            ax.set_title(f'{i}$^{{th}}$ excited state (Eigenfunction)', fontsize=12)
+
+        # Label the eigenvalue on the plot
+        ax.text(0.5, 0.95, f'Eigenvalue: {e_values[i]:.3f}', transform=ax.transAxes, ha='center', fontsize=10)
+
+        # Save the plot
+        plt.savefig(f'./{i}_eigenfunction.png')
+        plt.close(fig)
+
+ground_state_vector = e_vec[:, 0]
+ground_state_2D = ground_state_vector.reshape((N, N)) 
+X, Y = np.meshgrid(np.arange(N), np.arange(N))
+fig = plt.figure(figsize=(10, 7))
+ax = fig.add_subplot(111, projection='3d')
+ax.plot_surface(X, Y, ground_state_2D, cmap='viridis')
+ax.set_title("Ground State Eigenvector (3D Surface Plot)")
+ax.set_xlabel("X")
+ax.set_ylabel("Y")
+ax.set_zlabel("Amplitude")
+plt.savefig("ground_state_plot.png")
 
     
 

@@ -1,2 +1,2 @@
 %paste the full image name bellow
-hundred.png
+square_30.png

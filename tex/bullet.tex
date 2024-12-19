@@ -1,0 +1,153 @@
+\documentclass[12pt,a4paper]{amsart}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage{amsrefs}
+\usepackage{parskip}
+\usepackage{bm}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+
+\newcommand{\legendre}[1]{\mathscr{L}(#1)}
+\newcommand{\pderiv}[3][]{%
+  \frac{\partial^{#1} #2}{\partial #3^{#1}}%
+}
+\newcommand{\tridiag}[3]{%
+  \begin{bmatrix}
+    #1 & #2 & 0 & \cdots & 0 \\
+    #3 & #1 & #2 & \ddots & \vdots \\
+    0 & #3 & #1 & \ddots & 0 \\
+    \vdots & \ddots & \ddots & \ddots & #2 \\
+    0 & \cdots & 0 & #3 & #1
+  \end{bmatrix}%
+}
+
+\newcommand{\Identity}[1]{\mathbb{I}_{#1}}
+\setlength{\parskip}{0.8em}
+
+\title{Project Plan: Bullet Pointed List}
+\author{Benjamin Mason}
+
+\begin{document}
+
+\maketitle
+
+\section*{TITLE}
+\begin{itemize}
+    \item Something to do with quantum billiard in it, maybe mention the nodal line conjecture.
+\end{itemize}
+
+\section*{INTRODUCTION}
+\begin{itemize}
+    \item Something similar to my intro in my Project Plan, basically providing a key summary of what reading the paper is going to achieve. 
+    \item Mention some heuristics and popular culture things to bring in some relation and maybe some history.
+    \item Somewhere I need to talk about the basics of dynamical systems. Maybe in the Mechanics section.
+\end{itemize}
+
+\section*{Chaotic Example: The Logistic Equation}
+\begin{itemize}
+    \item A good idea to start with a simple system that can quickly show chaotic behaviour.
+    \item When key topics are discussed, they can be related to this example.
+    \item Introduces the basic example of an iterative map, which will be useful when coming to Poincaré mappings.
+    \item Easily reuse content from the Project Plan with some reformatting and applying feedback from Stefan.
+\end{itemize}
+
+\section*{Lagrangian and Hamiltonian Mechanics}
+\begin{itemize}
+    \item Need to start with basics of Lagrangian mechanics to get to Hamiltonian mechanics, to then get to billiard systems.
+    \item Introduce Degrees of Freedom here.
+    \item $\mathcal{L}(\bm{q}, \bm{\dot{q}}, t) = \mathcal{T}(\bm{q}, \bm{\dot{q}}) - \mathcal{V}(\bm{q}, t)$
+    \item Maybe worth mentioning holonomic constraints, but unsure if necessary.
+    \item \textbf{Key Theorem:} Hamilton's Variational Principle, used to derive Euler-Lagrange Equations.
+    \item With a Lagrangian $\mathcal{L}(\bm{q}, \bm{\dot{q}}, t)$ and $\bm{\phi}(t) = (\phi_{1}(t)\ \cdots \ \phi_{f}(t))$ a trajectory in interval $t_1 \leq t \leq t_2$ and boundary values $\bm{\phi}(t_{1}) = \bm{a}, \bm{\phi}(t_{2}) = \bm{b}$. This orbit is such that the action $S[\bm{q}] = \int_{t_{1}}^{t_{2}} dt \mathcal{L}(\bm{q}, \bm{\dot{q}}, t)$ assumes an extremum.
+    \item So here we can define the functional derivative, to then get to the EL equations.
+    \item $\frac{\delta F[f]}{\delta f(x)} = \lim_{\epsilon \to 0} \frac{F[f + \epsilon \delta(x - x_0)] - F[f]}{\epsilon}$
+    \item $\frac{\delta S[q]}{\delta q_{k}} = \pderiv{\mathcal{L}}{q_{k}} - \frac{d}{dt} \pderiv{\mathcal{L}}{\dot{q_{k}}} = 0$ CHECK THIS EQUATION
+    \item Define the Hamiltonian through Legendre Transformation – need to learn more about it.
+    \item Legendre Transformation: $\legendre{f}(x) = x \frac{df}{dx} - f(x) = zg(z) - f(g(z)) = \legendre{z}$ for $x = g(z)$ and $z = \frac{df}{dx}.$ THIS SEEMS TO BE 1D, MAY NEED TO LOOK AT FOR MULTIPLE VARIABLES
+    \item $(\legendre{\mathcal{L}})(q, \dot{q}, t) = \dot{q}\frac{d\mathcal{L}}{d\dot{q}} - \mathcal{L} = \mathcal{H}(q, p, t)$
+    \item Introduce phase space, constants of motion, trajectories, orbits, and conjugate momenta.
+    \item Derive Hamilton's equations; I need to learn more about deriving these directly through the Hamiltonian.
+    \item $\dot{q}_{k} = \pderiv{\mathcal{H}}{p_k}$, $\dot{p}_{k} = -\pderiv{\mathcal{H}}{q_k}$
+    \item Could speak on symmetries, but likely not relevant.
+    \item Need to introduce action and angle variables
+    \item Need to introduce integrable and non-integrable systems.
+\end{itemize}
+
+\section*{Chaotic Properties}
+\begin{itemize}
+    \item Use this section to talk about the basics of chaotic motion
+    \item Need to talk about the sensitivity of initial conditions and Lyapunov exponent
+    \item Need to talk about trajectories not visiting the same place twice i.e. not periodic or quasi periodic.
+    \item NEED MORE IN THIS SECTION
+\end{itemize}
+
+\section*{Geometry of Chaos}
+\begin{itemize}
+    \item Need to talk about tori.
+    \item Need to introduce periodic and quasi-periodic motion.
+    \item Need to talk about how constants of motions constrain the phase space surface, i.e. why integrable systems cannot display chaotic motion but integrable can
+    \item Need to introduce commensurate and incommensurate frequencies
+    \item Need to introduce KAM theorem (only basics)
+    \item Need to introduce Poincare sections and Poincare mappings (important for billiards)
+\end{itemize}
+
+\section*{Quantum Mechanics}
+\begin{itemize}
+    \item Need to show the quantisation of the Hamiltonian
+    \item Need to discuss 1D Schrödinger Equation, and infinite potential well in 1D
+    \item Then go on to 2D Schrödinger Equation, and infinte potential wells in 2D
+    \item Probably use a square as an example
+    \item Need to make clear about eigenvalues and eigenvectors to then go onto the billiard things (like the numeric stuff)
+    \item When in 2D, discuss difference between analytic and numeric solutions, and why integrable systems are seperable and non-integrable are not.
+    \item $-\frac{1}{2} \frac{d^2 \psi(x)}{dx^2} + V(x) \psi(x) = E \psi(x)$
+    \item $(-\frac{1}{2} \nabla^{2} + V)\psi(x, y) = E\psi(x, y)$
+    \item $\Hat{H}\Psi = E\Psi$ for $\Hat{H} = \Hat{K} + \Hat{V}$
+\end{itemize}
+
+\section*{Classical Billiards}
+\begin{itemize}
+    \item Need to set up what classical billiard systems are i.e. just the definition I wrote down - relate it back to game of pool
+    \item Need to mention about convex shaped billiards - maybe a good idea to research more types of billiard
+    \item Relate Hamiltonians equations to the Poincaré Mapping i.e. explain why this  mapping captures all the information of the dynamics of the system.
+    \item Give general argument for deriving mapping for convex billiard
+    \item Then use circle example as an integrable system, and cardioid as a non-integrable system
+    \item Maybe useful to use Bill2D to get some diagrams in there, or there are many good diagrams available.
+\end{itemize}
+
+\section*{Quantum Billiards and Chaos}
+\begin{itemize}
+    \item Need to talk about quantum chaos is the quantum mechanics of classically chaotic systems.
+    \item Talk about specific quantum chaos phenomena, like quantum scarring
+    \item Relate the potential well examples to billiard systems
+    \item Breifly highlight the nodal structure of wavefunctions to lead into the next section
+\end{itemize}
+
+\section*{Nodal Line Conjecture}
+\begin{itemize}
+    \item Need to talk about the nodal line conjecture
+    \item Basically take the key details from the paper on this
+    \item Set up the need for Q-BIDs
+\end{itemize}
+
+\section*{Numerical Methods for solving the Schrödinger Equation}
+\begin{itemize}
+    \item Deriver the numerical method that Q-BIDs uses.
+    \item Taylor Expansion leads to finite-difference method
+    \item In 1D; $\pderiv[2]{f}{x} \approx \frac{f_{i+1} - 2f_{i} + f_{i-1}}{h^{2}}$; 2D; $\nabla^{2} = L \approx D \oplus D = D \otimes \Identity{N} + \Identity{N} \otimes D$ for $D$ the discretised differential operator in 1D
+    \item $D = \tridiag{-2}{1}{1}$
+    \item Need to talk about the limitations of the numerical methods
+\end{itemize}
+
+\section*{Q-BIDs}
+\begin{itemize}
+    \item Discuss why I created it
+    \item Need to talk about basic features
+    \item May want to do a basic example of the pixel art to solving the equation
+    \item May want code snippets (i do not know if necessary)
+\end{itemize}
+
+\section*{Results}
+
+\section*{Conclusion}
+\end{document}
